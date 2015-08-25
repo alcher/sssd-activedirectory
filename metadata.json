@@ -1,0 +1,18 @@
+{
+  "license": "GPL",
+  "source": "None",
+  "types": [
+
+  ],
+  "description": "SSSD Active Directory authentication module",
+  "version": "0.0.1",
+  "project_page": "None",
+  "summary": "SSSD Active directory puppet module",
+  "name": "alcher-sssd",
+  "author": "alcher",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib"
+    }
+  ]
+}

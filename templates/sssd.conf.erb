@@ -1,0 +1,39 @@
+# This file is managed by Puppet.
+# Any changes you make to this file will be reverted on the next Puppet run.
+[sssd]
+config_file_version = 2
+services = nss, pam, pac, ssh, sudo
+domains = <%= @domains.flatten.join(',') %>
+debug_level = 0
+subdomain_enumerate = all
+[nss]
+filter_groups = <%= @filter_groups.flatten.join(',') %>
+filter_users = <%= @filter_users.flatten.join(',') %>
+reconnection_retries = 3
+[ssh]
+debug_level = 10
+[sudo]
+[pac]
+[pam]
+offline_credentials_expiration = 3
+[domain/<%= @domains %>]
+ldap_referrals = <%= @ldap_referrals %>
+enumerate = <%= @enumerate %>
+ldap_schema = ad
+debug_level = 10
+id_provider = ad
+auth_provider = ad
+chpass_provider = ad
+access_provider = ad
+ad_access_filter = <%= @ad_access_filter %>
+default_shell = <%= @user_shell %>
+fallback_homedir = <%= @user_home_directory %>
+krb5_realm = <%= @krb5_realm %>
+krb5_kpasswd = <%= @krb5_kpasswd %>
+krb5_canonicalize = <%= @krb5_canonicalize %>
+cache_credentials = <%= @cache_credentials %>
+entry_cache_timeout = <%= @entry_cache_timeout %>
+min_id = <%= @real_min_id %>
+pwd_expiration_warning = 7
+account_cache_expiration = 7
+

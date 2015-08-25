@@ -1,0 +1,10 @@
+[global]
+   workgroup = <%= @workgroup %>
+   client signing = yes
+   client use spnego = yes
+   kerberos method = secrets and keytab
+   dedicated keytab file=/etc/krb5.keytab
+   log file = /var/log/samba/%m.log
+   password server = <%= @krb5_kpasswd %>
+   realm = <%= @domains %>
+   security = ads
